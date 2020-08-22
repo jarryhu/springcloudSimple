@@ -4,10 +4,10 @@ spring:
   application:
     name: menu
   datasource:
-    name: orderingsystem
-    url: jdbc:mysql://localhost:3306/orderingsystem?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/order?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
-    password: root
+    password: 111111
+    driver-class-name: com.mysql.cj.jdbc.Driver
 eureka:
   client:
     service-url:
@@ -15,5 +15,7 @@ eureka:
   instance:
     prefer-ip-address: true
 mybatis:
-  mapper-locations: classpath:mapping/*.xml
-  type-aliases-package: com.southwind.entity
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-aliases-package: com.hukun.entity
